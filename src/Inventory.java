@@ -66,7 +66,7 @@ public class Inventory {
       // if existing product already has the same pid, add combine the quantities
       if (p.getProductID().equals(prod.getProductID())) {
         p.setQuantity(p.getQuantity() + prod.getQuantity());
-        System.out.println("Updated quantity of product with pid " + prod.getProductID());
+        System.out.print("Updated quantity of product with pid " + prod.getProductID());
         this.write();
         return;
       }
