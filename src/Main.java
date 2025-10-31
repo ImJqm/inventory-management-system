@@ -3,7 +3,6 @@ import java.lang.*;
 
 public class Main {
   // name of json file that contains data
-  private static final String FILE_PATH = "inventory.json";
 
   public static void main(String[] args) {
     // initialiszes inventory
@@ -53,7 +52,7 @@ public class Main {
               String pid = args[1];
               inv.removeProduct(pid); // remove product widith that id
             } catch (ArrayIndexOutOfBoundsException e) { // if nothing is porvided
-              System.out.println("Error: Not enough arguements for -r");
+              System.out.print("Error: Not enough arguements for -r");
             }
             break;
           case "-q": // if -q arguemnt
@@ -63,7 +62,7 @@ public class Main {
               int quantity = Integer.valueOf(args[2]);
               inv.updateQuantity(pid, quantity); // updates thw quantity with the provided product with the new quantity
             } catch (ArrayIndexOutOfBoundsException e) { // catches input error
-              System.out.println("Error: Not enough arguements for -q");
+              System.out.print("Error: Not enough arguements for -q");
             }
             break;
           case "-h": // prints info for when they run -h

@@ -100,9 +100,9 @@ public class Inventory {
 
     // removes index if it can
     if (index == -1) {
-      System.out.println("Couldn't find product with product ID \"" + productID + "\"");
+      System.out.print("Couldn't find product with product ID \"" + productID + "\"");
     } else {
-      System.out.println("Removed product with product ID " + "\"" + productID + "\"");
+      System.out.print("Removed product with product ID " + "\"" + productID + "\"");
       this.listings.remove(index);
     }
     // writes to inventory.json
@@ -112,9 +112,10 @@ public class Inventory {
 
   // update quantity method
   public void updateQuantity(String pid, int quantity) {
+    boolean found = false;
     // checks for invalid quantity
     if (quantity < 0) {
-      System.out.print("Error: Neagtive quantity");
+      System.out.print("Error: Negative quantity");
       return;
     }
     // finds product with the correct pid
@@ -122,10 +123,15 @@ public class Inventory {
       if (p.getProductID().equals(pid)) {
         // sets quantity
         p.setQuantity(quantity);
+        found = true;
       }
     }
     // prints info and writes to file
-    System.out.print("Updated quantity of item with Product ID: " + pid + " to " + quantity);
+    if (found) {
+      System.out.print("Updated quantity of item with Product ID: " + pid + " to " + quantity);
+    } else {
+      System.out.print("Error: product with pid " + pid + " nout found");
+    }
     this.write();
   }
 
@@ -211,12 +217,12 @@ public class Inventory {
       String pid = this.addString(lPID.length(), " ");
       String priceTop = this.addString(lPrice.length() + 4, "─");
       String price = this.addString(lPrice.length() - 2, " ");
-      String quantityTop = this.addString(lQuantity.length() + 5, "─");
+      String quantityTop = this.addString(lQuantity.length() + 6, "─");
       String quantity = this.addString(lQuantity.length() - 4, " ");
 
       // makes sure quantity top is at least 9 dashes
-      if (quantityTop.length() < 9) {
-        quantityTop = this.addString(9, "─");
+      if (quantityTop.length() < 10) {
+        quantityTop = this.addString(10, "─");
       }
 
       // this constructs a filler string for the layers seperating each product
@@ -225,7 +231,7 @@ public class Inventory {
       // this prints the very top
       System.out.println("╭" + nameTop + "┬" + pidTop + "┬" + priceTop + "┬" + quantityTop + "╮");
       // this prints the row with the labels
-      System.out.println("│ Name" + name + "│ Pid" + pid + " │ Price" + price + "│ Quantity" + quantity + "│");
+      System.out.println("│ Name" + name + "│ Pid" + pid + " │ Price" + price + "│ Quantity " + quantity + "│");
       // adds a filler below the top section
       System.out.println(filler);
 
