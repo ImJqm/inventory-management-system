@@ -50,7 +50,7 @@ ims() {
 
 **Known Limitations**
 -------------------------------------------
-- Before compiling you must update the SRC_DIR variable in Inventry.java
+- Before compiling you must update the SRC_DIR variable in Inventory.java
 - Only works on Linux filesystems due to needing /tmp/
 
 **TODO**
