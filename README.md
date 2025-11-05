@@ -52,6 +52,7 @@ ims() {
 -------------------------------------------
 - Before compiling you must update the SRC_DIR variable in Inventory.java
 - Only works on Linux filesystems due to needing /tmp/
+- This was written in java 25. In earlier versions of java the print method interacts differently with thr bash shell. Thus, when running with a vrrsion of java before 25, some outputs may appear on thr same line as the bash prompt instrsd of above it. 
 
 **TODO**
 -------------------------------------------
